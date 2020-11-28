@@ -92,6 +92,8 @@ export default class Category extends React.Component {
                     onMessage={(event) => {
                         console.log("message recieved: " + event);
                     }}
+                    bounces={false}
+                    useWebKit={true}
                 />
                 {this.state.visible && (
                     <View style={{ flex: 1, alignItems: "center" }}>

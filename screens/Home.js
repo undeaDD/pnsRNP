@@ -1,8 +1,18 @@
 import React from "react";
-import { View, Image } from "react-native";
+import { View, Image, ActivityIndicator } from "react-native";
+import { WebView } from "react-native-webview";
 import HeaderButton from "../navigation/HeaderButton";
 
 export default class Home extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { visible: true };
+    }
+
+    hideSpinner() {
+        this.setState({ visible: false });
+    }
+
     render() {
         this.props.navigation.setOptions({
             headerTitle: () => (
@@ -58,6 +68,33 @@ export default class Home extends React.Component {
             ),
         });
 
-        return <View style={{ backgroundColor: "#f9f9f9", flex: 1 }}></View>;
+        return (
+            <View
+                style={{
+                    backgroundColor: "#f9f9f9",
+                    flex: 1,
+                }}
+            >
+                <WebView
+                    style={{ flex: 1 }}
+                    originWhitelist={["*"]}
+                    onLoad={() => this.hideSpinner()}
+                    source={{
+                        uri:
+                            "https://undeadd.github.io/pnsRNP/starter-kit.html",
+                    }}
+                    onMessage={(event) => {
+                        console.log("message recieved: " + event);
+                    }}
+                    bounces={true}
+                    useWebKit={true}
+                />
+                {this.state.visible && (
+                    <View style={{ flex: 1, alignItems: "center" }}>
+                        <ActivityIndicator size="large" />
+                    </View>
+                )}
+            </View>
+        );
     }
 }
