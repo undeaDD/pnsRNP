@@ -80,13 +80,12 @@ export default class Home extends React.Component {
                     originWhitelist={["*"]}
                     onLoad={() => this.hideSpinner()}
                     source={{
-                        uri:
-                            "https://undeadd.github.io/pnsRNP/starter-kit.html",
+                        uri: "https://undeadd.github.io/pnsRNP/home.html",
                     }}
                     onMessage={(event) => {
                         console.log("message recieved: " + event);
                     }}
-                    bounces={true}
+                    bounces={false}
                     useWebKit={true}
                 />
                 {this.state.visible && (
