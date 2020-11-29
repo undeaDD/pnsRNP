@@ -1,0 +1,120 @@
+<!doctype html>
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover, user-scalable=no, shrink-to-fit=no">
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+	<style>
+		* {
+			background-color: #f9f9f9;
+			font-family: Arial, Helvetica, sans-serif;
+			font-weight: 700;
+		}
+		html, body, img, div {
+			margin: 0;
+			padding: 0;
+		}
+		#header {
+			width: calc(100% - 20px);
+			color: #464646;
+			margin: 20px 0px 0px 20px;
+			font-weight: 700;
+			font-size: 18px;
+		}
+		hr {
+			border-top: 1px solid #e7e7e7;
+		}
+		#table {
+			table-layout: fixed;
+			width: calc(100% - 10px);
+			margin: 10px 5px 0px 5px;
+		}
+		#table td {
+			width: 25%;
+			padding-bottom: 5px;
+		}
+		.item {
+			width: 100%;
+			object-fit: cover;
+		}
+		.rowText {
+			width: 100%;
+			color: #4f4f4f;
+			margin: 20px 0px 20px 0px;
+			vertical-align: middle;
+			font-weight: 200;
+			font-size: 17px;
+			line-height: 20px;
+		}
+		.rowText img {
+			height: 20px;
+			width : 20px;
+			margin: 0px 20px 0px 20px;
+			object-fit: cover;
+		}
+		#wip {
+			height: 1000px;
+			width: 100%;
+		}
+		#footer {
+			position: fixed;
+			bottom: 0;
+			height: 100px;
+			width: 100%;
+			background-color: black;
+		}
+	</style>
+</head>
+
+<body>
+	<p id="header">Kategorien</p>
+	<hr>
+	<table id="table">
+		<tr>
+		  <td onclick="send('navigate:item:1')"><img class="item" src="item2.png"/></td>
+		  <td onclick="send('navigate:item:2')"><img class="item" src="item2.png"/></td>
+		  <td onclick="send('navigate:item:3')"><img class="item" src="item2.png"/></td>
+		  <td onclick="send('navigate:item:4')"><img class="item" src="item2.png"/></td>
+		</tr>
+		<tr>
+			<td onclick="send('navigate:item:5')"><img class="item" src="item2.png"/></td>
+			<td onclick="send('navigate:item:6')"><img class="item" src="item2.png"/></td>
+			<td onclick="send('navigate:item:7')"><img class="item" src="item2.png"/></td>
+			<td onclick="send('navigate:item:8')"><img class="item" src="item2.png"/></td>
+		</tr>
+		<tr>
+			<td onclick="send('navigate:item:9')"><img class="item" src="item2.png"/></td>
+			<td onclick="send('navigate:item:10')"><img class="item" src="item2.png"/></td>
+			<td onclick="send('navigate:item:11')"><img class="item" src="item2.png"/></td>
+			<td onclick="send('navigate:item:12')"><img class="item" src="item2.png"/></td>
+		</tr>
+	</table>
+	<hr>
+		<p class="rowText" onclick="send('navigate:home')"><img src="item3.png"></img>Startseite</p>
+	<hr>
+		<p class="rowText" onclick="send('navigate:notifications')"><img src="item3.png"></img>Benachrichtigungen</p>
+	<hr>
+		<p class="rowText" onclick="send('navigate:tracking')"><img src="item3.png"></img>Sendungsverfolgung</p>
+	<hr>
+		<p class="rowText" onclick="send('navigate:agb')"><img src="item3.png"></img>AGB & Datenschutz</p>
+	<hr>
+		<p class="rowText" onclick="send('navigate:imprint')"><img src="item3.png"></img>Impressum & Kontakt</p>
+	<hr>
+	<div id="wip"/>
+
+	<div id="footer"/>
+
+	<script type="application/javascript">
+		function send(message) {
+			let postMessage = window.parent.postMessage;
+			if(window.ReactNativeWebView) {
+				postMessage = window.ReactNativeWebView.postMessage;
+			}
+			postMessage(message)
+		}
+	</script>
+</body>
+</html>

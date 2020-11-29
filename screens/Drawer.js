@@ -4,6 +4,15 @@ import { WebView } from "react-native-webview";
 import HeaderButton from "../navigation/HeaderButton";
 
 export default class Drawer extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { visible: true };
+    }
+
+    hideSpinner() {
+        this.setState({ visible: false });
+    }
+
     render() {
         this.props.navigation.setOptions({
             gestureDirection: "horizontal-inverted",
@@ -73,7 +82,22 @@ export default class Drawer extends React.Component {
                         uri: "https://undeadd.github.io/pnsRNP/drawer.html",
                     }}
                     onMessage={(event) => {
-                        this.props.navigation.push("Category");
+                        Alert.alert(
+                            "Message recieved",
+                            '"' + event.nativeEvent.data + '"',
+                            [
+                                {
+                                    text: "Cancel",
+                                    style: "cancel",
+                                },
+                                {
+                                    text: "Starter-Sets",
+                                    onPress: () =>
+                                        this.props.navigation.push("Category"),
+                                },
+                            ],
+                            { cancelable: true }
+                        );
                     }}
                     bounces={false}
                     useWebKit={true}
