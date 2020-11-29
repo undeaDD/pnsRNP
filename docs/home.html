@@ -39,11 +39,19 @@
 
 <body>
 	<img id="header" src="header.png"/>
-	<div id="coupon">
+	<div id="coupon" onclick="send('navigate:coupon')">
 		HEUTE: 30% RABATT
 	</div>
 	<div id="wip"></div>
-	<div id="wip"></div>
-  <script src="js/scripts.js"></script>
+
+	<script type="application/javascript">
+		function send(message) {
+			let postMessage = window.parent.postMessage;
+			if(window.ReactNativeWebView) {
+				postMessage = window.ReactNativeWebView.postMessage;
+			}
+			postMessage(message)
+		}
+	</script>
 </body>
 </html>

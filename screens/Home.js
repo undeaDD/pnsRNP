@@ -87,6 +87,9 @@ export default class Home extends React.Component {
                     }}
                     bounces={false}
                     useWebKit={true}
+                    showsHorizontalScrollIndicator={false}
+                    showsVerticalScrollIndicator={false}
+                    incognito={true}
                 />
                 {this.state.visible && (
                     <View style={{ flex: 1, alignItems: "center" }}>
