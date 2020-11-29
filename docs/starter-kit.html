@@ -21,9 +21,8 @@
 			object-fit: fill;
 		}
 		#overlay {
-			width: calc(100% - 20px);
-			height: 300px;
-			margin: 0px 10px;
+			width: calc(100% - 30px);
+			margin: 0px 15px;
 			background-color: white;
 			position: absolute;
 			text-align: center;
@@ -42,7 +41,7 @@
 
 		.image { position: relative; }
 		.image img { display: block; position: relative; z-index: 1; width: 100%; }
-		.image .fade { position: absolute; bottom: 0; width: 100%; height: 150px; z-index: 2; background: rgba(255, 255, 255, 0) linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 80%) repeat scroll 0 0;  }
+		.image .fade { position: absolute; bottom: 0; width: 100%; height: 150px; z-index: 2; background: rgba(255, 255, 255, 0) linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 80%) repeat scroll 0 0;  }
 
 		#title {
 			font-weight: 200;
@@ -57,6 +56,22 @@
 			line-height: 10px;
 			font-size: 10px;
 			margin: 10px 0 0 0;
+		}
+
+		#table {
+			table-layout: fixed ;
+			width: calc(100% - 10px);
+			margin: 10px 5px 20px 5px;
+		}
+
+		#table td {
+			width: 33%;
+			padding-bottom: 5px;
+		}
+
+		.item {
+			width: 100%;
+			object-fit: cover;
 		}
 
 		#wip {
@@ -74,7 +89,29 @@
 	<div id="overlay">
 		<h3 id="title">Starter Sets</h3>
 		<p id="subtitle">Starter Sets für Gel & Acryl Set für den</br>perfekten Einstieg in die Nagelmodellage.</p>
+		<table id="table">
+			<tr>
+			  <td onclick="send('navigate:item:1')"><img class="item" src="item.png"/></td>
+			  <td onclick="send('navigate:item:2')"><img class="item" src="item.png"/></td>
+			  <td onclick="send('navigate:item:3')"><img class="item" src="item.png"/></td>
+			</tr>
+			<tr>
+				<td onclick="send('navigate:item:4')"><img class="item" src="item.png"/></td>
+				<td onclick="send('navigate:item:5')"><img class="item" src="item.png"/></td>
+				<td onclick="send('navigate:item:6')"><img class="item" src="item.png"/></td>
+			</tr>
+		</table>
 	</div>
 	<div id="wip"></div>
+
+	<script type="application/javascript">
+		function send(message) {
+			let postMessage = window.parent.postMessage;
+			if(window.ReactNativeWebView) {
+				postMessage = window.ReactNativeWebView.postMessage;
+			}
+			postMessage(message)
+		}
+	</script>
 </body>
 </html>

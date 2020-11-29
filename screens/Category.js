@@ -90,13 +90,18 @@ export default class Category extends React.Component {
                             "https://undeadd.github.io/pnsRNP/starter-kit.html",
                     }}
                     onMessage={(event) => {
-                        console.log("message recieved: " + event);
+                        Alert.alert(
+                            "Message recieved",
+                            '"' + event.nativeEvent.data + '"'
+                        );
                     }}
                     bounces={false}
                     useWebKit={true}
                     showsHorizontalScrollIndicator={false}
                     showsVerticalScrollIndicator={false}
                     incognito={true}
+                    scalesPageToFit={false}
+                    startInLoadingState={true}
                 />
                 {this.state.visible && (
                     <View style={{ flex: 1, alignItems: "center" }}>
