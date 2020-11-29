@@ -1,5 +1,11 @@
 import React from "react";
-import { View, Image, TouchableOpacity, ActivityIndicator } from "react-native";
+import {
+    View,
+    Image,
+    TouchableOpacity,
+    ActivityIndicator,
+    Alert,
+} from "react-native";
 import { WebView } from "react-native-webview";
 import HeaderButton from "../navigation/HeaderButton";
 

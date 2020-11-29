@@ -1,5 +1,6 @@
 import React from "react";
-import { View, Image, Button } from "react-native";
+import { View, Image, ActivityIndicator, Alert } from "react-native";
+import { WebView } from "react-native-webview";
 import HeaderButton from "../navigation/HeaderButton";
 
 export default class Drawer extends React.Component {
@@ -62,14 +63,31 @@ export default class Drawer extends React.Component {
                 style={{
                     backgroundColor: "#f9f9f9",
                     flex: 1,
-                    justifyContent: "center",
-                    alignItems: "center",
                 }}
             >
-                <Button
-                    title="<StarterKit Kategorie>"
-                    onPress={() => this.props.navigation.push("Category")}
+                <WebView
+                    style={{ flex: 1 }}
+                    originWhitelist={["*"]}
+                    onLoad={() => this.hideSpinner()}
+                    source={{
+                        uri: "https://undeadd.github.io/pnsRNP/drawer.html",
+                    }}
+                    onMessage={(event) => {
+                        this.props.navigation.push("Category");
+                    }}
+                    bounces={false}
+                    useWebKit={true}
+                    showsHorizontalScrollIndicator={false}
+                    showsVerticalScrollIndicator={false}
+                    incognito={true}
+                    scalesPageToFit={false}
+                    startInLoadingState={true}
                 />
+                {this.state.visible && (
+                    <View style={{ flex: 1, alignItems: "center" }}>
+                        <ActivityIndicator size="large" />
+                    </View>
+                )}
             </View>
         );
     }
