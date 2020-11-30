@@ -6,30 +6,6 @@ export default class Search extends React.Component {
     render() {
         this.props.navigation.setOptions({
             headerTitle: () => <Text style={{}}>SUCHE</Text>,
-            headerRight: () => (
-                <View style={{ flexDirection: "row" }}>
-                    <HeaderButton
-                        icon="search"
-                        right={48}
-                        onPress={() => null}
-                        badgeCount={0}
-                    />
-                    <HeaderButton
-                        icon="heart"
-                        right={34}
-                        onPress={() => this.props.navigation.push("Bookmarks")}
-                        badgeCount={2}
-                    />
-                    <HeaderButton
-                        icon="bag"
-                        right={18}
-                        onPress={() =>
-                            this.props.navigation.push("ShoppingCart")
-                        }
-                        badgeCount={5}
-                    />
-                </View>
-            ),
             headerLeft: () => (
                 <View style={{ flexDirection: "row" }}>
                     {this.props.navigation.canGoBack() ? (
