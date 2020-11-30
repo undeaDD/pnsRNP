@@ -14,6 +14,7 @@ export default class MainStackNavigator extends React.Component {
         return (
             <Stack.Navigator
                 screenOptions={{
+                    headerTitleAlign: "center",
                     headerStyle: {
                         backgroundColor: "#f9f9f9",
                     },

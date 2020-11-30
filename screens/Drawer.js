@@ -48,22 +48,14 @@ export default class Drawer extends React.Component {
                 </View>
             ),
             headerLeft: () => (
-                <View style={{ flexDirection: "row" }}>
-                    <HeaderButton
-                        icon="back"
-                        left={18}
-                        onPress={() => {
-                            this.props.navigation.goBack();
-                        }}
-                        badgeCount={0}
-                    />
-                    <HeaderButton
-                        icon="menu"
-                        left={34}
-                        onPress={() => this.props.navigation.goBack()}
-                        badgeCount={0}
-                    />
-                </View>
+                <HeaderButton
+                    icon="back"
+                    left={18}
+                    onPress={() => {
+                        this.props.navigation.goBack();
+                    }}
+                    badgeCount={0}
+                />
             ),
         });
 
