@@ -171,7 +171,7 @@ export const Renderers = {
                         marginRight: 18,
                     }}
                     source={{
-                        uri: "https://undeadd.github.io/pnsRNP/item3.png",
+                        uri: htmlAttribs.icon,
                     }}
                 ></Image>
                 <Text
