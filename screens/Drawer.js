@@ -9,15 +9,15 @@ const htmlContent = `
 	<seperator></seperator>
 	<categories></categories>
 	<seperator></seperator>
-	<link icon="https://undeadd.github.io/pnsRNP/assets/drawer/home.png" title="Starseite"></link>
+	<link icon="home.png" title="Starseite"></link>
 	<seperator></seperator>
-	<link icon="https://undeadd.github.io/pnsRNP/assets/drawer/notifications.png" title="Benachrichtigungen"></link>
+	<link icon="notifications.png" title="Benachrichtigungen"></link>
 	<seperator></seperator>
-	<link icon="https://undeadd.github.io/pnsRNP/assets/drawer/tracking.png" title="Sendungsverfolgung"></link>
+	<link icon="tracking.png" title="Sendungsverfolgung"></link>
 	<seperator></seperator>
-	<link icon="https://undeadd.github.io/pnsRNP/assets/drawer/imprint.png" title="AGB & Datenschutz"></link>
+	<link icon="imprint.png" title="AGB & Datenschutz"></link>
 	<seperator></seperator>
-	<link icon="https://undeadd.github.io/pnsRNP/assets/drawer/contact.png" title="Impressum & Kontakt"></link>
+	<link icon="contact.png" title="Impressum & Kontakt"></link>
 	<seperator></seperator>
 	<vspacer height="200"></vspacer>
 `;

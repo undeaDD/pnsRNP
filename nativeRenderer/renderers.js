@@ -82,40 +82,52 @@ export const Renderers = {
     categories: (htmlAttribs, children, convertedCSSStyles, passProps) => {
         const initialArr = [
             {
-                src: "https://undeadd.github.io/pnsRNP/item2.png",
+                src: "sale.png",
+                title: "SALE",
             },
             {
-                src: "https://undeadd.github.io/pnsRNP/item2.png",
+                src: "tint.png",
+                title: "Get & Acryl",
             },
             {
-                src: "https://undeadd.github.io/pnsRNP/item2.png",
+                src: "starterSets.png",
+                title: "Starter-Sets",
             },
             {
-                src: "https://undeadd.github.io/pnsRNP/item2.png",
+                src: "nailpolish.png",
+                title: "Shellac & Nagellack",
             },
             {
-                src: "https://undeadd.github.io/pnsRNP/item2.png",
+                src: "brushes.png",
+                title: "Pinsel",
             },
             {
-                src: "https://undeadd.github.io/pnsRNP/item2.png",
+                src: "fluids.png",
+                title: "Flüssigkeiten",
             },
             {
-                src: "https://undeadd.github.io/pnsRNP/item2.png",
+                src: "nails.png",
+                title: "Nagel-Tips",
             },
             {
-                src: "https://undeadd.github.io/pnsRNP/item2.png",
+                src: "file.png",
+                title: "Feilen",
             },
             {
-                src: "https://undeadd.github.io/pnsRNP/item2.png",
+                src: "art.png",
+                title: "Nailart",
             },
             {
-                src: "https://undeadd.github.io/pnsRNP/item2.png",
+                src: "utilities.png",
+                title: "Elektrische Geräte",
             },
             {
-                src: "https://undeadd.github.io/pnsRNP/item2.png",
+                src: "extras.png",
+                title: "Zubehör",
             },
             {
-                src: "https://undeadd.github.io/pnsRNP/item2.png",
+                src: "lashes.png",
+                title: "Lashes",
             },
         ];
         return (
@@ -132,18 +144,39 @@ export const Renderers = {
             >
                 {initialArr.map((item) => {
                     return (
-                        <View
+                        <TouchableOpacity
+                            delayPressIn={0}
+                            activeOpacity={0.5}
                             style={{
                                 width: "25%",
                                 aspectRatio: 1,
-                                backgroundColor: item.color,
                             }}
                         >
                             <Image
-                                style={{ width: "100%", height: "100%" }}
-                                source={{ uri: item.src }}
+                                resizeMode={"contain"}
+                                style={{
+                                    width: "40%",
+                                    aspectRatio: 1,
+                                    marginTop: 15,
+                                    marginLeft: "30%",
+                                }}
+                                source={{
+                                    uri:
+                                        "https://undeadd.github.io/pnsRNP/" +
+                                        item.src,
+                                }}
                             />
-                        </View>
+                            <Text
+                                style={{
+                                    textAlign: "center",
+                                    marginTop: 5,
+                                    fontSize: 11,
+                                    width: "100%",
+                                }}
+                            >
+                                {item.title}
+                            </Text>
+                        </TouchableOpacity>
                     );
                 })}
             </View>
@@ -164,14 +197,17 @@ export const Renderers = {
             >
                 <Image
                     style={{
-                        width: 20,
+                        width: 25,
                         height: 20,
                         marginTop: 23,
                         marginLeft: 18,
                         marginRight: 18,
                     }}
+                    resizeMode={"contain"}
                     source={{
-                        uri: htmlAttribs.icon,
+                        uri:
+                            "https://undeadd.github.io/pnsRNP/" +
+                            htmlAttribs.icon,
                     }}
                 ></Image>
                 <Text
