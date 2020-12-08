@@ -27,6 +27,7 @@ export default class HeaderButton extends React.Component {
         return (
             <TouchableOpacity
                 style={{ width: 20, height: 20, right: right, left: left }}
+                delayPressIn={0}
                 onPress={this.props.onPress}
                 activeOpacity={0.5}
             >

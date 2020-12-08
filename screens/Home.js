@@ -1,18 +1,16 @@
 import React from "react";
-import { View, Image, ActivityIndicator, Alert } from "react-native";
-import { WebView } from "react-native-webview";
+import { Renderers } from "../nativeRenderer/renderers";
+import { View, Image, ScrollView } from "react-native";
+import HTML from "react-native-render-html";
 import HeaderButton from "../navigation/HeaderButton";
 
+const htmlContent = `
+	<header src="https://undeadd.github.io/pnsRNP/header.png"></header>
+	<coupon color="#ff4b9c" text="HEUTE 30% RABATT" navigate="search"></coupon>
+	<vspacer height="500"></vspacer>
+`;
+
 export default class Home extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { visible: true };
-    }
-
-    hideSpinner() {
-        this.setState({ visible: false });
-    }
-
     render() {
         this.props.navigation.setOptions({
             headerTitle: () => (
@@ -27,21 +25,28 @@ export default class Home extends React.Component {
                     <HeaderButton
                         icon="search"
                         right={48}
-                        onPress={() => this.props.navigation.push("Search")}
+                        onPress={this.props.navigation.push.bind(
+                            this,
+                            "Search"
+                        )}
                         badgeCount={0}
                     />
                     <HeaderButton
                         icon="heart"
                         right={34}
-                        onPress={() => this.props.navigation.push("Bookmarks")}
+                        onPress={this.props.navigation.push.bind(
+                            this,
+                            "Bookmarks"
+                        )}
                         badgeCount={2}
                     />
                     <HeaderButton
                         icon="bag"
                         right={18}
-                        onPress={() =>
-                            this.props.navigation.push("ShoppingCart")
-                        }
+                        onPress={this.props.navigation.push.bind(
+                            this,
+                            "ShoppingCart"
+                        )}
                         badgeCount={5}
                     />
                 </View>
@@ -52,16 +57,17 @@ export default class Home extends React.Component {
                         <HeaderButton
                             icon="back"
                             left={18}
-                            onPress={() => {
-                                this.props.navigation.goBack();
-                            }}
+                            onPress={this.props.navigation.goBack.bind(this)}
                             badgeCount={0}
                         />
                     ) : null}
                     <HeaderButton
                         icon="menu"
                         left={this.props.navigation.canGoBack() ? 34 : 18}
-                        onPress={() => this.props.navigation.push("Drawer")}
+                        onPress={this.props.navigation.push.bind(
+                            this,
+                            "Drawer"
+                        )}
                         badgeCount={0}
                     />
                 </View>
@@ -69,39 +75,13 @@ export default class Home extends React.Component {
         });
 
         return (
-            <View
-                style={{
-                    backgroundColor: "#f9f9f9",
-                    flex: 1,
-                }}
-            >
-                <WebView
-                    style={{ flex: 1 }}
-                    originWhitelist={["*"]}
-                    onLoad={() => this.hideSpinner()}
-                    source={{
-                        uri: "https://undeadd.github.io/pnsRNP/home.html",
-                    }}
-                    onMessage={(event) => {
-                        Alert.alert(
-                            "Message recieved",
-                            '"' + event.nativeEvent.data + '"'
-                        );
-                    }}
-                    bounces={false}
-                    useWebKit={true}
-                    showsHorizontalScrollIndicator={false}
-                    showsVerticalScrollIndicator={false}
-                    incognito={true}
-                    scalesPageToFit={false}
-                    startInLoadingState={true}
+            <ScrollView style={{ flex: 1 }}>
+                <HTML
+                    containerStyle={{ flex: 1 }}
+                    source={{ html: htmlContent }}
+                    renderers={Renderers}
                 />
-                {this.state.visible && (
-                    <View style={{ flex: 1, alignItems: "center" }}>
-                        <ActivityIndicator size="large" />
-                    </View>
-                )}
-            </View>
+            </ScrollView>
         );
     }
 }

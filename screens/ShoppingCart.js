@@ -5,23 +5,24 @@ import HeaderButton from "../navigation/HeaderButton";
 export default class ShoppingCart extends React.Component {
     render() {
         this.props.navigation.setOptions({
-            headerTitle: () => <Text style={{}}>WARENKORB</Text>,
+            headerTitle: () => <Text>WARENKORB</Text>,
             headerLeft: () => (
                 <View style={{ flexDirection: "row" }}>
                     {this.props.navigation.canGoBack() ? (
                         <HeaderButton
                             icon="back"
                             left={18}
-                            onPress={() => {
-                                this.props.navigation.goBack();
-                            }}
+                            onPress={this.props.navigation.goBack.bind(this)}
                             badgeCount={0}
                         />
                     ) : null}
                     <HeaderButton
                         icon="menu"
                         left={this.props.navigation.canGoBack() ? 34 : 18}
-                        onPress={() => this.props.navigation.push("Drawer")}
+                        onPress={this.props.navigation.push.bind(
+                            this,
+                            "Drawer"
+                        )}
                         badgeCount={0}
                     />
                 </View>

@@ -1,5 +1,8 @@
 import React from "react";
-import { createStackNavigator } from "@react-navigation/stack";
+import {
+    CardStyleInterpolators,
+    createStackNavigator,
+} from "@react-navigation/stack";
 import Home from "../screens/Home";
 import Category from "../screens/Category";
 import Drawer from "../screens/Drawer";
@@ -17,10 +20,15 @@ export default class MainStackNavigator extends React.Component {
                     headerTitleAlign: "center",
                     headerStyle: {
                         backgroundColor: "#f9f9f9",
+                        elevation: 0,
+                        shadowOpacity: 0,
+                        borderBottomWidth: 0,
                     },
                     headerTintColor: "#3e3e3e",
                     headerBackImage: null,
                     headerBackTitle: null,
+                    cardStyleInterpolator:
+                        CardStyleInterpolators.forHorizontalIOS,
                 }}
                 initialRouteName={"Home"}
             >

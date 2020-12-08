@@ -1,32 +1,31 @@
 {
-  "expo": {
-    "name": "PNS24 RN",
-    "slug": "pnsrn",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/app.png",
-    "updates": {
-      "fallbackToCacheTimeout": 0
-    },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "ios": {
-      "supportsTablet": false,
-      "bundleIdentifier": "eu.deltasiege.pns.rn",
-      "buildNumber": "1.0.0"
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/app.png",
-        "backgroundColor": "#FFFFFF"
-      }
-    },
-    "web": {
-      "favicon": "./assets/favicon.png",
-      "package": "eu.deltasiege.pns.rn",
-      "versionCode": 1
-    },
-    "description": ""
-  }
+    "expo": {
+        "name": "PNS24 RN",
+        "slug": "pnsrn",
+        "version": "1.0.0",
+        "orientation": "portrait",
+        "icon": "./assets/app.png",
+        "updates": {
+            "fallbackToCacheTimeout": 0
+        },
+        "assetBundlePatterns": ["**/*"],
+        "ios": {
+            "supportsTablet": false,
+            "bundleIdentifier": "eu.deltasiege.pns.rn",
+            "buildNumber": "1.0.0"
+        },
+        "android": {
+            "adaptiveIcon": {
+                "foregroundImage": "./assets/app.png",
+                "backgroundColor": "#FFFFFF"
+            },
+            "enableDangerousExperimentalLeanBuilds": true
+        },
+        "web": {
+            "favicon": "./assets/favicon.png",
+            "package": "eu.deltasiege.pns.rn",
+            "versionCode": 1
+        },
+        "description": ""
+    }
 }

@@ -3,6 +3,10 @@ import { View, Text } from "react-native";
 import HeaderButton from "../navigation/HeaderButton";
 
 export default class Search extends React.Component {
+    goBack() {
+        this.props.goBack();
+    }
+
     render() {
         this.props.navigation.setOptions({
             headerTitle: () => <Text style={{}}>SUCHE</Text>,
@@ -12,16 +16,17 @@ export default class Search extends React.Component {
                         <HeaderButton
                             icon="back"
                             left={18}
-                            onPress={() => {
-                                this.props.navigation.goBack();
-                            }}
+                            onPress={this.props.navigation.goBack.bind(this)}
                             badgeCount={0}
                         />
                     ) : null}
                     <HeaderButton
                         icon="menu"
                         left={this.props.navigation.canGoBack() ? 34 : 18}
-                        onPress={() => this.props.navigation.push("Drawer")}
+                        onPress={this.props.navigation.push.bind(
+                            this,
+                            "Drawer"
+                        )}
                         badgeCount={0}
                     />
                 </View>

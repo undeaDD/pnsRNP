@@ -12,3 +12,7 @@
 [1127/162629.695:ERROR:process_info.cc(359)] UncheckedAllocate
 [1127/162629.801:ERROR:process_info.cc(359)] UncheckedAllocate
 [1130/131504.552:ERROR:directory_reader_win.cc(43)] FindFirstFile: Das System kann den angegebenen Pfad nicht finden. (0x3)
+[1208/140712.134:ERROR:directory_reader_win.cc(43)] FindFirstFile: Das System kann den angegebenen Pfad nicht finden. (0x3)
+[1208/194328.079:ERROR:process_info.cc(329)] VirtualQueryEx: Zugriff verweigert (0x5)
+[1208/194328.079:ERROR:process_info.cc(556)] ReadMemoryInfo failed
+[1208/194328.079:ERROR:scoped_process_suspend.cc(40)] NtResumeProcess: Es wurde versucht, auf einen Prozess zuzugreifen, der gerade beendet wurde. (0xc000010a)
